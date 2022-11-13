@@ -20,6 +20,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import dateFormat from "dateformat";
 import CloseIcon from '@mui/icons-material/Close';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import AddIcon from '@mui/icons-material/Add';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { v4 as uuidv4 } from 'uuid';
@@ -56,6 +57,21 @@ function Row(props) {
       })
   }
 
+  const reminderEmprunt = (idEtudiant) => {
+
+    axios.post(`${API_BACKEND}/api/reminderEmprunt`, {
+      id_etudiant: idEtudiant,
+      id_materiel: currentIdMateriel,
+      date_emprunt: newEmpruntDateDebut,
+      date_rendu: newEmpruntDateRendu,
+    })
+      .then((res) => {
+        console.log(res)
+      }).catch((err) => {
+        console.log(err)
+      })
+  }
+
   const handleChange = (event) => {
     setSelectedEtudiant(event.target.value);
   };
@@ -68,6 +84,7 @@ function Row(props) {
         <TableCell>{etudiants.find(etudiant => etudiant.id === emprunt.id_etudiant).annee}</TableCell>
         <TableCell>{dateFormat(emprunt.date_emprunt, "dd/mm/yyyy")}</TableCell>
         <TableCell>{dateFormat(emprunt.date_rendu, "dd/mm/yyyy")}</TableCell>
+        <TableCell style={{ width: 20 }}><IconButton onClick={() => reminderEmprunt(emprunt.id_etudiant)}><NotificationsNoneIcon /></IconButton></TableCell>
         <TableCell style={{ width: 20 }}><IconButton onClick={() => cancelEmprunt(emprunt.id)}><CloseIcon /></IconButton></TableCell>
       </TableRow>
     ))
@@ -200,6 +217,7 @@ function Row(props) {
                     <TableCell style={{ fontWeight: 600 }}>Année</TableCell>
                     <TableCell style={{ fontWeight: 600 }}>Date d'emprunt</TableCell>
                     <TableCell style={{ fontWeight: 600 }}>Date de rendu</TableCell>
+                    <TableCell style={{ fontWeight: 600 }}>Rappel</TableCell>
                     <TableCell style={{ fontWeight: 600 }}>Supprimer l'emprunt</TableCell>
                   </TableRow>
                 </TableHead>
