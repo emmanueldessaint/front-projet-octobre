@@ -1,14 +1,13 @@
 FROM node:18
 
 RUN cd /tmp && \
-    git clone https://github.com/emmanueldessaint/projet-octobre.git backend
+    git clone https://github.com/emmanueldessaint/front-projet-octobre.git frontend
 
-WORKDIR /tmp/backend
+WORKDIR /tmp/frontend
 
-RUN cd /tmp/backend && \
-    npm install && \
-    npm install -g nodemon
+RUN cd /tmp/frontend && \
+    npm install 
 
-EXPOSE 8000
+EXPOSE 3000
 
-ENTRYPOINT ["nodemon", "server.js"]
+ENTRYPOINT ["npm", "run", "start"]
