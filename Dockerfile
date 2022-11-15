@@ -8,6 +8,6 @@ WORKDIR /tmp/frontend
 RUN cd /tmp/frontend && \
     npm install 
 
-EXPOSE 3000
+EXPOSE 3006
 
 ENTRYPOINT ["npm", "run", "start"]
