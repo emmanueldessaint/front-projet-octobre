@@ -3,7 +3,6 @@ import App from './App';
 import nock from 'nock';
 import axios from "axios";
 import supertest from 'supertest';
-import * as api from "./api";
 
 jest.mock("./api");
 
