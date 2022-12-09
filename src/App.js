@@ -33,7 +33,6 @@ function Row(props) {
   const { materiel, emprunts, etudiants, setEmprunts, setMateriels, materiels } = props;
   const [open, setOpen] = React.useState(false);
   const [openPopUpCreateEmprunt, setOpenPopUpCreateEmprunt] = useState(false);
-  const [newEmpruntStudent, setNewEmpruntStudent] = useState('');
   const [newEmpruntDateDebut, setNewEmpruntDateDebut] = useState(new Date(Date(today.getFullYear(), today.getMonth(), today.getDate())));
   const [newEmpruntDateRendu, setNewEmpruntDateRendu] = useState(new Date(Date(today.getFullYear(), today.getMonth(), today.getDate())));
   const [selectedEtudiant, setSelectedEtudiant] = React.useState('');
