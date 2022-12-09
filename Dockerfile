@@ -1,12 +1,9 @@
-FROM node:18
+FROM node:18 AS nws-front
 
-RUN cd /tmp && \
-    git clone https://github.com/emmanueldessaint/front-projet-octobre.git frontend
+WORKDIR /app
 
-WORKDIR /tmp/frontend
-
-RUN cd /tmp/frontend && \
-    npm install 
+COPY . /app
+RUN npm ci && npm run build
 
 EXPOSE 3006
 
