@@ -7,4 +7,4 @@ RUN npm ci && npm run build
 
 EXPOSE 3006
 
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["npm", "start"]
