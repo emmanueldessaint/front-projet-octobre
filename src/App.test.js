@@ -40,5 +40,8 @@ describe("test de l'api", () => {
   it('GET / étudiants', () => {
     return request.get('/getStudents').expect(200);
   })
+  it('GET / étudiants', () => {
+    return request.get('/getStudentss').expect(200);
+  })
 });
 
