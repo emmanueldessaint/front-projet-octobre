@@ -25,8 +25,8 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { v4 as uuidv4 } from 'uuid';
 
 // require('dotenv').config();
-// const API_BACKEND = 'http://vps-f0007953.vps.ovh.net:8000';
-const API_BACKEND = 'http://localhost:8000';
+const API_BACKEND = 'http://vps-f0007953.vps.ovh.net:8000';
+// const API_BACKEND = 'http://localhost:8000';
 
 function Row(props) {
   let today = new Date();
