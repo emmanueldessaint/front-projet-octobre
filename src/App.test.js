@@ -23,7 +23,7 @@ test('boutons et affichage du tableau', () => {
     screen.getByText("Supprimer le matériel")
   ).toBeInTheDocument();
   expect(
-    screen.getByText("Ajouter du matériel")
+    screen.getByText("Ajouter du matériel OwO")
   ).toBeInTheDocument();
 });
 
